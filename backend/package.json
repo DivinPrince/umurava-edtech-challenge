@@ -1,0 +1,52 @@
+{
+  "name": "umurava_edtech-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --watch src --watch .env.local --ext ts,json,env --exec tsx src/app.ts",
+    "db:generate-dev": "dotenv -e .env.local -- prisma generate",
+    "db:migrate-dev": "dotenv -e .env.local -- prisma migrate dev",
+    "db:create-admin": "tsx src/scripts/create-admin.ts",
+    "db:push-dev": "dotenv -e .env.local -- prisma db push",
+    "db:studio-dev": "dotenv -e .env.local -- prisma studio",
+    "db:seed-dev": "dotenv -e .env.local -- tsx src/scripts/seed.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Irasubiza Divin Prince",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "@t3-oss/env-core": "^0.12.0",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.17",
+    "@types/lodash": "^4.17.15",
+    "better-auth": "^1.1.14",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.7",
+    "dotenv-cli": "^8.0.0",
+    "express": "^4.21.2",
+    "lodash": "^4.17.21",
+    "prisma": "^6.2.1",
+    "tsx": "^4.19.2",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.10",
+    "nodemon": "^3.1.9",
+    "typescript": "^5.7.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "esbuild",
+      "prisma"
+    ]
+  }
+}
