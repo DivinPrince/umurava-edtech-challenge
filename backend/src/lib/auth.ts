@@ -19,14 +19,14 @@ export const auth = betterAuth({
         useSecureCookies: true,
         crossSubDomainCookies: {
             enabled: true,
-            domain: "umurava-edtech.dimestore.app"
+            domain: env.NODE_ENV === "production" ? "umurava-edtech.dimestore.app" : "localhost"
         },
         cookies: {
             session_token: {
                 attributes: {
                     sameSite: "none",    
                     secure: true,
-                    domain: ".umurava-edtech.dimestore.app",
+                    domain: env.NODE_ENV === "production" ? ".umurava-edtech.dimestore.app" : "localhost",
                     partitioned: true
                 }
             }
